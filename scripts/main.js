@@ -12,8 +12,8 @@ let paddleX = (canvas.height - paddleHeight) / 2;
 
 function drawPaddle() {
     ctx.beginPath();
-    ctx.rect(paddleX, canvas.width - paddleWidth, paddleHeight, paddleWidth);
-    ctx.strokeStyle = "rgba(0, 0, 225, 0.5)";
+    ctx.rect(canvas.width - paddleWidth, paddleX, paddleWidth, paddleHeight);
+    ctx.strokeStyle = "#0095DD";
     ctx.stroke();
     ctx.closePath();
 }
