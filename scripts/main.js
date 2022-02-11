@@ -1,1 +1,2 @@
-// Put your JavaScript here
+// Pong independent game
+
