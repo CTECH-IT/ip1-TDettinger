@@ -10,10 +10,14 @@ let paddleHeight = 75;
 let paddleWidth = 10;
 let paddleX = (canvas.height - paddleHeight) / 2;
 
+let dx = 2;
+let dy = -2;
+
 let ballRadius = 10;
 
 let UpPressed = false;
 let DownPressed = false;
+
 
 function drawPaddle1() {
     ctx.beginPath();
@@ -48,8 +52,9 @@ function draw() {
 
     drawBall();
 
-       // paddle controls
-       if (UpPressed) {
+
+    // paddle controls
+    if (UpPressed) {
         paddleX -= 7;
         if (paddleX < 0) {
             paddleX = 0;
@@ -59,6 +64,28 @@ function draw() {
         paddleX += 7;
         if (paddleX + paddleHeight > canvas.height) {
             paddleX = canvas.height - paddleHeight;
+        }
+    }
+
+
+    // change the x and y values for the ball
+    x += dx;
+    y += dy;
+
+    // check if we have gone off the board
+    if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+    }
+
+    if (y + dy < ballRadius) { //ceiling check
+        dy = -dy;
+
+    } else if (x + dx > canvas.width - ballRadius) {// side check
+        if (x > paddleX && x < paddleX + paddleHeight) { // paddle check
+            dx = -dx;
+        } else { // it hit the wall!
+            alert("GAME OVER");
+            document.location.reload();
+            clearInterval(interval); // Needed for browser to end game
         }
     }
 
