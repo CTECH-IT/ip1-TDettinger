@@ -99,10 +99,17 @@ function draw() {
     if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
         dy = -dy;
     }
-    if (x + dx > canvas.width-ballRadius) {
-        alert("GAME OVER");
-        document.location.reload();
-        clearInterval(interval);
+
+    if (x + dx < ballRadius) { // wall check
+        dx = -dx;
+    } else if (x + dx > canvas.width-ballRadius) {
+        if(y > paddleX && y < paddleX + paddleHeight) {
+            dx = -dx;
+        } else {
+            alert("GAME OVER");
+            document.location.reload();
+            clearInterval(interval);
+        }
     } 
 }
 function keyDownHandler(e) {
