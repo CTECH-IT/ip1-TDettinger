@@ -71,16 +71,20 @@ function draw() {
     // change the x and y values for the ball
     x += dx;
     y += dy;
-
+    /*
     // check if we have gone off the board
     if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+        dx = -dx;
     }
-
+    
     if (y + dy < ballRadius) { //ceiling check
         dy = -dy;
-
-    } else if (x + dx > canvas.width - ballRadius) {// side check
-        if (x > paddleX && x < paddleX + paddleHeight) { // paddle check
+    }
+    
+    if (y - dy < ballRadius) {
+        dy = -dy;
+    } else if (y + dy > canvas.height - ballRadius) {// side check
+        if (y > paddleX && y < paddleX + paddleHeight) { // paddle check
             dx = -dx;
         } else { // it hit the wall!
             alert("GAME OVER");
@@ -88,9 +92,19 @@ function draw() {
             clearInterval(interval); // Needed for browser to end game
         }
     }
+    */
 
+
+
+    if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
+        dy = -dy;
+    }
+    if (x + dx > canvas.width-ballRadius) {
+        alert("GAME OVER");
+        document.location.reload();
+        clearInterval(interval);
+    } 
 }
-
 function keyDownHandler(e) {
     if (e.key == "Up" || e.key == "ArrowUp") {
         UpPressed = true;
