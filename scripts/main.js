@@ -115,6 +115,18 @@ function draw() {
             clearInterval(interval);
         }
     } 
+
+    if (x - dx < ballRadius) { // wall check
+        dx = -dx;
+    } else if (x + dx > canvas.width-ballRadius) {
+        if(x < canvas.width && x > paddleX + paddleHeight) {
+            dx = -dx;
+        } else {
+            alert("GAME OVER");
+            document.location.reload();
+            clearInterval(interval);
+        }
+    } 
 }
 function keyDownHandler(e) {
     if (e.key == "Up" || e.key == "ArrowUp") {
