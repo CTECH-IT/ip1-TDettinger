@@ -18,6 +18,9 @@ let ballRadius = 10;
 let UpPressed = false;
 let DownPressed = false;
 
+function speed() {
+    2 * dx
+}
 
 function drawPaddle1() {
     ctx.beginPath();
@@ -52,6 +55,9 @@ function draw() {
 
     drawBall();
 
+    speed();{
+        window.setTimeout(10000);
+    }
 
     // paddle controls
     if (UpPressed) {
@@ -93,8 +99,6 @@ function draw() {
         }
     }
     */
-
-
 
     if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
         dy = -dy;
