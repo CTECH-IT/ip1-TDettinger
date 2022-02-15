@@ -77,6 +77,8 @@ function draw() {
     // change the x and y values for the ball
     x += dx;
     y += dy;
+
+
     /*
     // check if we have gone off the board
     if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
@@ -100,22 +102,22 @@ function draw() {
     }
     */
 
+
     if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
         dy = -dy;
     }
 
-    if (x + dx < ballRadius) { // wall check
-        dx = -dx;
-    } else if (x + dx > canvas.width-ballRadius) {
+    if (x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
         if(y > paddleX && y < paddleX + paddleHeight) {
             dx = -dx;
+        
         } else {
             alert("GAME OVER");
             document.location.reload();
             clearInterval(interval);
         }
     } 
-
+    /*
     if (x - dx < ballRadius) { // wall check
         dx = -dx;
     } else if (x + dx > canvas.width-ballRadius) {
@@ -126,8 +128,9 @@ function draw() {
             document.location.reload();
             clearInterval(interval);
         }
-    } 
+    } */
 }
+
 function keyDownHandler(e) {
     if (e.key == "Up" || e.key == "ArrowUp") {
         UpPressed = true;
@@ -149,5 +152,6 @@ function keyUpHandler(e) {
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
-
 let interval = setInterval(draw, 10);
+
+
