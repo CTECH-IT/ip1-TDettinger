@@ -18,6 +18,8 @@ let ballRadius = 10;
 let UpPressed = false;
 let DownPressed = false;
 
+let score = 000;
+
 function speed() {
     2 * dx
 }
@@ -45,6 +47,11 @@ function drawBall() {
     ctx.closePath();
 }
 
+function drawScore() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Score: " + score, 8, 20);
+}
 
 function draw() {
 
@@ -55,9 +62,7 @@ function draw() {
 
     drawBall();
 
-   
-
-    speed();
+   drawScore();
 
     // paddle controls
     if (UpPressed) {
@@ -113,7 +118,6 @@ function draw() {
         
         } else {
             alert("GAME OVER");
-            stopTimer();
             document.location.reload();
             clearInterval(interval);
         }
@@ -131,6 +135,7 @@ function draw() {
         }
     } */
 }
+
 
 function keyDownHandler(e) {
     if (e.key == "Up" || e.key == "ArrowUp") {
@@ -155,63 +160,11 @@ document.addEventListener("keyup", keyUpHandler, false);
 
 let interval = setInterval(draw, 10);
 
-
-document.getElementById('stopwatch');
-
-var hr = 0;
-var min = 0;
-var sec = 0;
-var stoptime = true;
-
-function startTimer() {
-    if (stoptime == true) {
-        stoptime = false;
-        timerCycle
-    }
-}
-function stopTimer() {
-    if (stoptime == false) {
-        stoptime = true;
-    }
-}
-function timerCycle() {
-    if (stoptime == false) {
-        sec = parseInt(sec);
-        min = parseInt(min);
-        hr = parseInt(hr);
-
-        sec = sec + 1;
-
-        if (sec == 60) {
-        min = min + 1;
-        sec = 0;
-        }
-        if (min == 60) {
-        hr = hr + 1;
-        min = 0;
-        sec = 0;
-        }
-
-        if (sec < 10 || sec == 0) {
-        sec = '0' + sec;
-        }
-        if (min < 10 || min == 0) {
-        min = '0' + min;
-        }
-        if (hr < 10 || hr == 0) {
-        hr = '0' + hr;
-        }
-
-        timer.innerHTML = hr + ':' + min + ':' + sec;
-        setTimeout("timerCycle()", 1000);
-    }
+function points() {
+    score++;
 }
 
-function resetTimer() {
-    timer.innerHTML = "00:00:00";
-    stoptime = true;
-    hr = 0;
-    sec = 0;
-    min = 0;
-}
-startTimer();
+let interval2 = setInterval(points, 1000);
+
+
+
