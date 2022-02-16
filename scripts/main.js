@@ -18,6 +18,8 @@ let ballRadius = 10;
 let UpPressed = false;
 let DownPressed = false;
 
+let score = 000;
+
 function speed() {
     2 * dx
 }
@@ -45,6 +47,11 @@ function drawBall() {
     ctx.closePath();
 }
 
+function drawScore() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Score: " + score, 8, 20);
+}
 
 function draw() {
 
@@ -55,8 +62,13 @@ function draw() {
 
     drawBall();
 
+<<<<<<< HEAD
     score();
    
+=======
+   drawScore();
+
+>>>>>>> 4a25702c5f012692293c7a886addda4f2c3310db
     // paddle controls
     if (UpPressed) {
         paddleX -= 7;
@@ -106,7 +118,7 @@ function draw() {
     }
 
     if (x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
-        if(y > paddleX && y < paddleX + paddleHeight) {
+        if(y > paddleX && y < paddleX + paddleHeight + 10) {
             dx = -dx;
         
         } else {
@@ -128,6 +140,7 @@ function draw() {
         }
     } */
 }
+
 
 function keyDownHandler(e) {
     if (e.key == "Up" || e.key == "ArrowUp") {
@@ -152,8 +165,40 @@ document.addEventListener("keyup", keyUpHandler, false);
 
 let interval = setInterval(draw, 10);
 
+function mouseMoveHandler(e) {
+    let relativeX = e.clientX - canvas.offsetLeft;
+    if (relativeX > 0 && relativeX < canvas.width) {
+        paddleX = relativeX - paddleWidth / 2;
+    }
+}
 
+<<<<<<< HEAD
 function score() {
     setInterval(1000);
     stopwatch += 1;
 }
+=======
+document.addEventListener("mousemove", mouseMoveHandler, false);
+
+
+function points() {
+    score++;
+}
+
+function speed() {
+    dy = 1.3 * dy;
+    dx = 1.3 * dx;
+}
+
+function speed2() {
+    dy = 1.3 * dy;
+    dx = 1.3 * dx;
+}
+
+
+
+
+let interval2 = setInterval(points, 1000);
+let interval3 = setInterval(speed, 10000)
+let interval4 = setInterval(speed2, 20000)
+>>>>>>> 4a25702c5f012692293c7a886addda4f2c3310db
