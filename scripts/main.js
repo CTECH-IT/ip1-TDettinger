@@ -62,13 +62,8 @@ function draw() {
 
     drawBall();
 
-<<<<<<< HEAD
-    score();
-   
-=======
    drawScore();
 
->>>>>>> 4a25702c5f012692293c7a886addda4f2c3310db
     // paddle controls
     if (UpPressed) {
         paddleX -= 7;
@@ -166,18 +161,12 @@ document.addEventListener("keyup", keyUpHandler, false);
 let interval = setInterval(draw, 10);
 
 function mouseMoveHandler(e) {
-    let relativeX = e.clientX - canvas.offsetLeft;
-    if (relativeX > 0 && relativeX < canvas.width) {
-        paddleX = relativeX - paddleWidth / 2;
+    let relativeY = e.clientY - canvas.offsetTop;
+    if (relativeY > 0 && relativeY < canvas.height) {
+        paddleX = relativeY - paddleHeight / 2;
     }
 }
 
-<<<<<<< HEAD
-function score() {
-    setInterval(1000);
-    stopwatch += 1;
-}
-=======
 document.addEventListener("mousemove", mouseMoveHandler, false);
 
 
@@ -201,4 +190,3 @@ function speed2() {
 let interval2 = setInterval(points, 1000);
 let interval3 = setInterval(speed, 10000)
 let interval4 = setInterval(speed2, 20000)
->>>>>>> 4a25702c5f012692293c7a886addda4f2c3310db
