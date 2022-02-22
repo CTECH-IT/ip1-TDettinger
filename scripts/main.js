@@ -206,9 +206,13 @@ function speed2() {
     dx = 1.3 * dx;
 }
 
-
+function speed3() {
+    dy = 1.2 * dy;
+    dx = 1.4 * dx;
+}
 
 
 let interval2 = setInterval(points, 1000);
-let interval3 = setInterval(speed, 10000)
-let interval4 = setInterval(speed2, 20000)
+let interval3 = setInterval(speed, 10000);
+let interval4 = setInterval(speed2, 20000);
+let interval5 = setInterval(speed3, 30000);
