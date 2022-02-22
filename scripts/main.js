@@ -20,6 +20,27 @@ let DownPressed = false;
 
 let score = 000;
 
+function restart() {
+    document.location.reload();
+    clearInterval(interval);
+}
+
+function waitingKeypress() {
+    return new Promise((resolve) => {
+      document.addEventListener('keydown', onKeyHandler);
+      function onKeyHandler(e) {
+        if (e.keyCode === 13) {
+          document.removeEventListener('keydown', onKeyHandler);
+          resolve();
+        }
+      }
+    });
+  }
+
+function myFunction() {
+    document.getElementById("myDialog").open = true;
+  }
+
 function speed() {
     2 * dx
 }
@@ -117,10 +138,12 @@ function draw() {
             dx = -dx;
         
         } else {
-            alert("GAME OVER");
-            document.location.reload();
-            clearInterval(interval);
+            myFunction(); 
+            
+
+
         }
+    
     } 
     /*
     if (x - dx < ballRadius) { // wall check
@@ -168,7 +191,6 @@ function mouseMoveHandler(e) {
 }
 
 document.addEventListener("mousemove", mouseMoveHandler, false);
-
 
 function points() {
     score++;
