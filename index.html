@@ -21,7 +21,11 @@
       Game Over!
     </header>
     <p>Your Score: </p>
-    <h1>23</h1>
+    <h1>
+      <script>
+      document.write(drawScore);
+      </script>
+    </h1>
     <button onclick="restart()">Try Again</button>
 
   </dialog>
@@ -33,3 +37,4 @@
   <script src="scripts/main.js"></script>
 </body>
 </html>
+
