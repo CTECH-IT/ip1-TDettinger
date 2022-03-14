@@ -9,12 +9,24 @@ canvas {
     background: #eee;
     display: block;
     margin: 0 auto;
+    box-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
+}
+
+header {
+    font-size: 40px;
+    text-shadow: rgba(85, 85, 85, 0.9) 1px 2px 9px;
+}
+
+header2 {
+font-size: 32px;
 }
 
 dialog {
     background: rgb(167, 3, 3);
-    margin: 30px;
+    margin: auto;
     font-size: 25px;
     color: #eee;
-
+    border: black;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
 }
