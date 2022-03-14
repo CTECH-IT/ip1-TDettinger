@@ -39,7 +39,10 @@ function waitingKeypress() {
 
 function myFunction() {
     document.getElementById("myDialog").open = true;
-  }
+    clearInterval(interval);
+    
+
+}
 
 function speed() {
     2 * dx
@@ -139,6 +142,7 @@ function draw() {
         
         } else {
             myFunction(); 
+            
             
 
 
