@@ -25,6 +25,10 @@ function restart() {
     clearInterval(interval);
 }
 
+function getpoints() {
+    return score;
+}
+
 function waitingKeypress() {
     return new Promise((resolve) => {
       document.addEventListener('keydown', onKeyHandler);
@@ -141,6 +145,11 @@ function draw() {
             dx = -dx;
         
         } else {
+             
+            points = document.getElementById("points");
+            let textNode = document.createTextNode(getpoints());
+            points.appendChild(textNode);
+      
             myFunction(); 
             
             
@@ -199,6 +208,8 @@ document.addEventListener("mousemove", mouseMoveHandler, false);
 function points() {
     score++;
 }
+
+
 
 function speed() {
     dy = 1.3 * dy;
